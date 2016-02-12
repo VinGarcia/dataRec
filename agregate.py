@@ -14,17 +14,17 @@ with open('output.json.bkp') as file:
 guess = fileDesc.findall(data['\n * * * * *'], dist=60000, min=60 )
 
 # Get the file with the most ocurrencies of "\n * * * * *":
-file = max(guess, key=lambda x: x.count)
+#file = max(guess, key=lambda x: x.count)
 
-print(file)
+for i, file in enumerate(guess):
+    print('file', i)
+    text = file.read()#padTop=1600)
 
-text = file.read(padTop=1600)
+    with open('file%s.txt' % i, 'w') as file:
+       file.write(text)
 
-with open('file.txt', 'w') as file:
-  file.write(text)
-
-with open('guess.json', 'w') as file:
-    guess = [item.toJSON() for item in guess]
-    file.write( json.dumps(guess, indent=2) )
+#with open('guess.json', 'w') as file:
+#    guess = [item.toJSON() for item in guess]
+#    file.write( json.dumps(guess, indent=2) )
 
 
