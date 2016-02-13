@@ -61,6 +61,10 @@ def search(file, words, maxChunks=None):
             timer.start()
             obj['count'] += 1
 
+        if obj['count'] % 10 == 0:
+            with open('search.log', 'w') as file:
+                file.write( json.dumps(fmap) )
+
         return timer
 
     timer = start()
@@ -82,7 +86,7 @@ def search(file, words, maxChunks=None):
                 if wpos == -1:
                     break
                 else:
-                    fmap[w].append(pos)
+                    fmap[w].append(pos+wpos)
         if chunk >= size:
             break
         chunk += 1
@@ -90,25 +94,6 @@ def search(file, words, maxChunks=None):
     timer.cancel()
     print('FIIIIIIIIIIIIIIIM')
     return fmap
-        
-if __name__ == '__main__':
-    dev = ropen('/dev/sda5')
-
-    words = ['\n * * * * *', '#Tarefas', '#S3', '#Sistema', '#Blog']
-
-    os.lseek(dev, -1024*1024, os.SEEK_END)
-
-    print('starting search...')
-
-    result = search(dev, words)
-
-    print('writting output...')
-
-    with open('output.json', 'w') as file:
-        file.write( json.dumps(result, indent=2) )
-
-
-
 
 
 

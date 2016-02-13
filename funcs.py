@@ -42,7 +42,7 @@ class fileDesc():
 
         text = os.read(dev, self.size + padTop + padBottom)
         os.close(dev)
-        return text.decode(encoding)
+        return text.decode(encoding, errors='replace')
 
 
     # Guess where files start and end, based on proximity
