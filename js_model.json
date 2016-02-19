@@ -1,0 +1,15 @@
+{
+  "words": [
+    "innerHTML", "video", "waitForClick"
+  ],
+  "desc" : {
+    "on_it" : [
+      "var casper = require",
+      "casper.start",
+      "casper.then",
+      "JSON.stringify"
+    ],
+    "off_it" : [ ],
+    "regExp" : null
+  }
+}

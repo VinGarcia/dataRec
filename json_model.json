@@ -1,0 +1,14 @@
+{
+  "words": [ ],
+  "desc" : {
+    "on_it" : [
+      "\n    \"title\": \"",
+      "\n    \"script\": \"",
+      "\n    \"equips\": \"",
+      "\n    \"synopsis\": \"",
+      "\n    \"references\": \""
+    ],
+    "off_it" : [ ],
+    "regExp" : null
+  }
+}
