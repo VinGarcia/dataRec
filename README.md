@@ -1,4 +1,4 @@
-A set of specialized python scripts made to recovery important text files from damaged or lost file systems.
+A set of specialized Python scripts made to recovery important text files from damaged or lost file systems.
 
 ## Intro
 
