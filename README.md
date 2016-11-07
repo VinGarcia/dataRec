@@ -1,4 +1,3 @@
-# dataRec
 An advanced set of python scripts made to recovery data files from damaged or lost file systems.
 
 ## Intro
