@@ -69,6 +69,11 @@ class fileDesc():
     count = 0
     _device = '/dev/sda5'
     def __init__(self, spos, delim=None, maxI=50000000):
+        # If loading from json:
+        if type(spos) == type({}) or type(spos) == type(""):
+            self.fromJSON(spos)
+            return
+
         self.count += 1
         self.spos = spos
         self.fpos = spos
@@ -123,11 +128,20 @@ class fileDesc():
         return json.dumps(self.toJSON())
     def toJSON(self):
         return {
-                'spos': readable(self.spos),
-                'fpos': readable(self.fpos),
-                'size': readable(self.size),
+                'spos': [ readable(self.spos), self.spos ],
+                'fpos': [ readable(self.fpos), self.fpos ],
+                'size': [ readable(self.size), self.size ],
                 'count': self.count
             }
+    def fromJSON(self, json_obj):
+        if type(json_obj) == type(""):
+            json_obj = json.loads(json_obj)
+
+        self.spos = json_obj['spos'][1]
+        self.fpos = json_obj['fpos'][1]
+        self.size = json_obj['size'][1]
+        self.count = json_obj['count']
+
     # Read file from device.
     def read(self, padTop=0, padBottom=0, encoding='utf-8'):
         dev = os.open(self._device, os.O_RDONLY)
@@ -135,6 +149,7 @@ class fileDesc():
 
         text = os.read(dev, self.size + padTop + padBottom)
         os.close(dev)
+        self.text = text.decode('utf-8', errors='replace')
         return text.decode(encoding, errors='replace')
 
     def groupFiles(list, delim=None, maxI=50000000):
