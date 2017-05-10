@@ -31,6 +31,7 @@ class Search():
 
         desc['name'], ext = splitext(basename(file))
 
+        # 'on_it' words also count as 'words':
         desc['words'] += desc['desc']['on_it']
 
         self.descs.append(desc)
@@ -114,7 +115,7 @@ class Search():
         finally:
             obj['timer'].cancel()
     
-        print('FIIIIIIIIIIIIIIIM')
+        print('FINISHED')
         return fmap
 
 
