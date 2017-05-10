@@ -9,7 +9,6 @@
       "casper.then",
       "JSON.stringify"
     ],
-    "off_it" : [ ],
-    "regExp" : null
+    "off_it" : [ ]
   }
 }
