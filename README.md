@@ -18,7 +18,7 @@ They contain a dictionary with the relevant arguments:
 
 - "words": Any words whose presence is not a guanrantee that the file is relevant, but that are likely to appear multiple times on the desired file.
 
-- "desc"/"on_it": Words that must be present on the file, e.g. the command to import some library you know you are using, or the `main()` function declaration.
+- "desc"/"on_it": Words that must be present on the file, e.g. the command to import some library you know you are using, or the `main()` function declaration (Note: Currently it is working as an alias for the "words" argument).
 
 The features below are not yet implemented:
 
