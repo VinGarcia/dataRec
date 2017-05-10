@@ -22,10 +22,7 @@ if __name__ == '__main__':
         search.addDesc(file)
 
     # Ask for the partition address
-    sys.stdout.write("""
-    Please write the address
-    of the desired partition
-    to opened read-only: """)
+    sys.stdout.write("Please write the address of the desired partition: ")
     dev = os.open(input(), os.O_RDONLY)
 
     print('starting search...')
